@@ -64,6 +64,6 @@ mesecon.lightstone_add("yellow", "dye:yellow", "jeija_lightstone_yellow_off.png"
 mesecon.lightstone_add("orange", "dye:orange", "jeija_lightstone_orange_off.png", "jeija_lightstone_orange_on.png", "Orange Lightstone")
 mesecon.lightstone_add("white", "dye:white", "jeija_lightstone_white_off.png", "jeija_lightstone_white_on.png", "White Lightstone")
 mesecon.lightstone_add("pink", "dye:pink", "jeija_lightstone_pink_off.png", "jeija_lightstone_pink_on.png", "Pink Lightstone")
-mesecon.lightstone_add("magenta", "dye:magenta", "jeija_lightstone_magenta_off.png", "jeija_lightstone_magenta_on.png", "Magenta Lightstone")
+mesecon.lightstone_add("fuchsia", "dye:magenta", "jeija_lightstone_fuchsia_off.png", "jeija_lightstone_fuchsia_on.png", "Fuchsia Lightstone")
 mesecon.lightstone_add("cyan", "dye:cyan", "jeija_lightstone_cyan_off.png", "jeija_lightstone_cyan_on.png", "Cyan Lightstone")
 mesecon.lightstone_add("violet", "dye:violet", "jeija_lightstone_violet_off.png", "jeija_lightstone_violet_on.png", "Violet Lightstone")
