@@ -53,8 +53,8 @@ local node_sounds = {
 }
 
 mesecon.noteblock_play = function(pos, param2)
-	pos.y = pos.y-1
-	local nodeunder = minetest.get_node(pos).name
+	local posunder = { x = pos.x, y = pos.y - 1, z = pos.z }
+	local nodeunder = minetest.get_node(posunder).name
 	local soundname = node_sounds[nodeunder]
 	if not soundname then
 		soundname = soundnames[param2]
@@ -66,6 +66,26 @@ mesecon.noteblock_play = function(pos, param2)
 			soundname = soundname.. 2
 		end
 	end
-	pos.y = pos.y+1
-	minetest.sound_play(soundname, {pos = pos})
+	-- Muffle sound when a node is above:
+	local gain = 1.0
+	local posabove = { x = pos.x, y = pos.y + 1, z = pos.z }
+	local nodeabove = minetest.get_node(posabove).name
+	local def = minetest.registered_nodes[nodeabove]
+	if nodeabove == "farming:straw" then
+		gain = 0.4
+	elseif minetest.get_item_group(nodeabove, "wool") ~= 0 then
+		gain = 0.2
+	elseif def and def.walkable then
+		if def.paramtype == "light" and def.sunlight_propagates then
+			gain = 0.8
+		elseif def.paramtype == "light" and not def.sunlight_propagates then
+			gain = 0.6
+		elseif def.paramtype ~= "light" then
+			-- No sound
+			return
+		end
+	elseif def and not def.walkable and def.liquidtype ~= "none" then
+		gain = 0.9
+	end
+	minetest.sound_play(soundname, {pos = pos, gain = gain})
 end
