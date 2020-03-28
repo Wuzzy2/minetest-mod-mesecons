@@ -45,17 +45,43 @@ local soundnames = {
 
 local node_sounds = {
 	["default:lava_source"] = "fire_fire",
+	["default:water_source"] = "mesecons_noteblock_bubble",
+	["default:river_water_source"] = "mesecons_noteblock_bubble",
 	["default:chest"] = "mesecons_noteblock_snare",
 	["default:chest_locked"] = "mesecons_noteblock_snare",
 	["default:coalblock"] = "tnt_explode",
+	["default:goldblock"] = "mesecons_noteblock_bell",
+	["default:copperblock"] = "mesecons_noteblock_cowbell",
+	["default:bronzeblock"] = "mesecons_noteblock_gong",
+	["default:tinblock"] = "mesecons_noteblock_xylophone_metal",
+	["default:diamondblock"] = "mesecons_noteblock_squarewave",
+	["default:silver_sandstone_brick"] = "mesecons_noteblock_chorus",
+	["default:sandstone"] = "mesecons_noteblock_sticks",
+	["default:silver_sandstone"] = "mesecons_noteblock_sticks",
+	["default:desert_sandstone"] = "mesecons_noteblock_sticks",
 	["default:glass"] = "mesecons_noteblock_hihat",
 	["default:obsidian_glass"] = "mesecons_noteblock_hihat",
+	["default:obsidian"] = "mesecons_noteblock_bass_drum",
+	["default:obsidian_block"] = "mesecons_noteblock_bass_drum",
+	["default:obsidianbrick"] = "mesecons_noteblock_bass_drum",
+	["farming:straw"] = "mesecons_noteblock_banjo",
+	["default:meselamp"] = "mesecons_noteblock_piano_digital",
+	["default:coral_skeleton"] = "mesecons_noteblock_xylophone_wood",
+	["bones:bones"] = "mesecons_noteblock_xylophone_wood",
+	["default:cactus"] = "mesecons_noteblock_didgeridoo",
+	["default:gravel"] = "mesecons_noteblock_bass_guitar",
+	["default:ice"] = "mesecons_noteblock_chime",
+	["default:cave_ice"] = "mesecons_noteblock_chime",
+	["vessels:shelf"] = "mesecons_noteblock_glass",
 }
 
 local node_sounds_group = {
 	["stone"] = "mesecons_noteblock_kick",
 	["tree"] = "mesecons_noteblock_crash",
 	["wood"] = "mesecons_noteblock_litecrash",
+	["sand"] = "mesecons_noteblock_hit",
+	["wool"] = "mesecons_noteblock_guitar",
+	["leaves"] = "mesecons_noteblock_flute",
 }
 
 mesecon.noteblock_play = function(pos, param2)
