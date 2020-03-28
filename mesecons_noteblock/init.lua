@@ -61,6 +61,8 @@ mesecon.noteblock_play = function(pos, param2)
 	pos.y = pos.y-1
 	local nodeunder = minetest.get_node(pos).name
 	local soundname = node_sounds[nodeunder]
+	local pitch
+	-- Special sounds
 	if not soundname then
 		for k,v in pairs(node_sounds_group) do
 			local g = minetest.get_item_group(nodeunder, k)
@@ -70,6 +72,7 @@ mesecon.noteblock_play = function(pos, param2)
 			end
 		end
 	end
+	-- Piano
 	if not soundname then
 		soundname = soundnames[param2]
 		if not soundname then
@@ -79,7 +82,20 @@ mesecon.noteblock_play = function(pos, param2)
 		if nodeunder == "default:steelblock" then
 			soundname = soundname.. 2
 		end
+		pitch = false
+	end
+	-- Disable pitch for fire and explode because they'd sound too odd
+	if soundname == "fire_fire" or soundname == "tnt_explode" then
+		pitch = false
+	end
+	if pitch == false then
+		pitch = nil
+	else
+		-- Calculate pitch
+		local val = (param2+1)%12
+		-- All semitones from C to B (analog to piano mode)
+		pitch = 2^((val-6)/12)
 	end
 	pos.y = pos.y+1
-	minetest.sound_play(soundname, {pos = pos})
+	minetest.sound_play(soundname, {pos = pos, pitch=pitch}, true)
 end
